@@ -18,12 +18,12 @@ export default defineConfig({
         'web-app-manifest-512x512.png',
       ],
       manifest: {
-        name: 'My App',
-        short_name: 'MyApp',
-        theme_color: '#ffffff',
-        background_color: '#ffffff',
+        name: 'Catalog',
+        short_name: 'Catalog',
+        theme_color: '#4F46E5',
+        background_color: '#FAFAFC',
         display: 'standalone',
-        start_url: '/',
+        start_url: '/admin/dashboard',
         icons: [
           { src: 'web-app-manifest-192x192.png', sizes: '192x192', type: 'image/png' },
           { src: 'web-app-manifest-512x512.png', sizes: '512x512', type: 'image/png' },

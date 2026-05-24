@@ -64,6 +64,7 @@ const CategoriesPage = () => {
   return (
     <div className="space-y-6">
       <CatalogPageHeader
+        badge="Inventory"
         title="Categories"
         description="Create and manage product categories for your catalog."
         action={

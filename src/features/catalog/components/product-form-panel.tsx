@@ -58,7 +58,7 @@ const ProductFormPanel = ({
   const hasCategories = categories.length > 0;
 
   return (
-    <Card>
+    <Card className="border-primary/20 shadow-md shadow-primary/5 ring-1 ring-primary/10">
       <CardHeader>
         <CardTitle>{product ? "Edit product" : "New product"}</CardTitle>
         <CardDescription>
