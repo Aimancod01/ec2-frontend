@@ -41,7 +41,7 @@ const CategoryFormPanel = ({
   }, [category, form]);
 
   return (
-    <Card>
+    <Card className="border-primary/20 shadow-md shadow-primary/5 ring-1 ring-primary/10">
       <CardHeader>
         <CardTitle>{category ? "Edit category" : "New category"}</CardTitle>
         <CardDescription>

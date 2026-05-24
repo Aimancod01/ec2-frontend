@@ -1,7 +1,14 @@
 import { Pencil, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
+import { cn } from "@/lib/utils";
 import type { Category } from "../types/api-types";
+import {
+  CatalogDataTable,
+  catalogTableHeadClass,
+  catalogTableRowClass,
+  truncateId,
+} from "./catalog-data-table";
 import EmptyState from "./empty-state";
 
 interface CategoryTableProps {
@@ -22,7 +29,7 @@ const CategoryTable = ({
   if (isLoading) {
     return (
       <div className="flex justify-center py-20">
-        <Spinner className="size-8" />
+        <Spinner className="text-primary size-8" />
       </div>
     );
   }
@@ -46,24 +53,29 @@ const CategoryTable = ({
   }
 
   return (
-    <div className="overflow-hidden rounded-xl border">
+    <CatalogDataTable>
       <table className="w-full text-sm">
-        <thead className="bg-muted/50 border-b">
+        <thead className="border-b">
           <tr>
-            <th className="px-4 py-3 text-start font-medium">Name</th>
-            <th className="px-4 py-3 text-start font-medium">ID</th>
-            <th className="px-4 py-3 text-end font-medium">Actions</th>
+            <th className={catalogTableHeadClass}>Name</th>
+            <th className={catalogTableHeadClass}>ID</th>
+            <th className={cn(catalogTableHeadClass, "text-end")}>Actions</th>
           </tr>
         </thead>
         <tbody>
           {categories.map((category) => (
-            <tr key={category.id} className="border-b last:border-b-0">
-              <td className="px-4 py-3 font-medium">{category.name}</td>
-              <td className="text-muted-foreground px-4 py-3 font-mono text-xs">
-                {category.id}
+            <tr key={category.id} className={catalogTableRowClass}>
+              <td className="px-4 py-3.5 font-medium">{category.name}</td>
+              <td className="text-muted-foreground px-4 py-3.5">
+                <code
+                  className="bg-muted rounded-md px-1.5 py-0.5 font-mono text-xs"
+                  title={category.id}
+                >
+                  {truncateId(category.id)}
+                </code>
               </td>
-              <td className="px-4 py-3">
-                <div className="flex justify-end gap-1">
+              <td className="px-4 py-3.5">
+                <div className="flex justify-end gap-0.5">
                   <Button
                     type="button"
                     variant="ghost"
@@ -88,8 +100,9 @@ const CategoryTable = ({
           ))}
         </tbody>
       </table>
-    </div>
+    </CatalogDataTable>
   );
 };
+
 
 export default CategoryTable;

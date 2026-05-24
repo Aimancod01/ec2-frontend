@@ -4,6 +4,7 @@ import { PUBLIC_ROUTES } from './public-routes'
 import { ADMIN_ROUTES } from './admin-routes';
 import { AUTH_ROUTES } from './auth-routes';
 import PageNotFound from '@/pages/public/404';
+import AppLoading from '@/components/shared/loading/app-loading';
 
 const MainRouter = () => {
     const router = createBrowserRouter([
@@ -28,7 +29,7 @@ const MainRouter = () => {
         },
     ]);
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<AppLoading />}>
             <RouterProvider router={router} />
         </Suspense>
     )
