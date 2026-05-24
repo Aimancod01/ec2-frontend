@@ -1,13 +1,13 @@
 import { lazy } from "react"
+import { Navigate } from "react-router-dom";
 
-const Landing = lazy(() => import('@/pages/public/landing'));
 const AboutUs = lazy(() => import('@/pages/public/about-us'));
 const ContactUs = lazy(() => import('@/pages/public/contact-us'));
 
 export const PUBLIC_ROUTES = [
     {
         index: true,
-        element: <Landing />,
+        element: <Navigate to="/admin/dashboard" replace />,
     },
     {
         path: 'about-us',
